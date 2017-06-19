@@ -1,0 +1,50 @@
+PODS:
+  - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - AlamofireObjectMapper (4.1.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 2.0)
+  - FutureKit (3.0.0)
+  - Material (2.6.3):
+    - Material/Core (= 2.6.3)
+  - Material/Core (2.6.3)
+  - ObjectMapper (2.2.7)
+  - SwiftIconFont (2.6.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - AlamofireObjectMapper
+  - FutureKit (from `https://github.com/FutureKit/FutureKit.git`, branch `v3`)
+  - Material
+  - ObjectMapper
+  - SwiftIconFont (from `https://github.com/0x73/SwiftIconFont.git`)
+
+EXTERNAL SOURCES:
+  FutureKit:
+    :branch: v3
+    :git: https://github.com/FutureKit/FutureKit.git
+  SwiftIconFont:
+    :git: https://github.com/0x73/SwiftIconFont.git
+
+CHECKOUT OPTIONS:
+  FutureKit:
+    :commit: af9acb907105a727d9f798a1d58fc15feb7b5f1e
+    :git: https://github.com/FutureKit/FutureKit.git
+  SwiftIconFont:
+    :commit: baa6211ef6956fe29822dc2bb4422ee9e168a65d
+    :git: https://github.com/0x73/SwiftIconFont.git
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  FutureKit: c003f87e59614905e5821c9190f3ed0469c97eb7
+  Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
+  ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  SwiftIconFont: 8899ee604d2ec363b798648249794e27b605414b
+
+PODFILE CHECKSUM: c98f9049b85af88d09adde9c59e8e2863d73765c
+
+COCOAPODS: 1.2.0.beta.1
