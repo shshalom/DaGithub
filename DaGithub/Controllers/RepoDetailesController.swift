@@ -124,6 +124,7 @@ class RepoDetailesController: UIViewController {
     fileprivate var dateFormatter: DateFormatter!
     fileprivate var dateLabel: UILabel!
     fileprivate var favoriteButton: IconButton!
+    fileprivate var gitHomepageButton: IconButton!
     fileprivate var forkButton: IconButton!
     
     /// Toolbar views.
@@ -146,6 +147,7 @@ class RepoDetailesController: UIViewController {
         preparePresenterView()
         prepareDateFormatter()
         prepareDateLabel()
+        prepareGitHomeButton()
         prepareFavoriteButton()
         prepareForkButton()
         prepareMoreButton()
@@ -198,13 +200,21 @@ extension RepoDetailesController {
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
     
+    fileprivate func prepareGitHomeButton() {
+        
+        let icon = UIImage.icon(from: .FontAwesome, iconColor: Color.blueGrey.base, code: "external-link-square", imageSize: CGSize(width:22,height:22), ofSize: 22)
+        
+        gitHomepageButton = IconButton(image: icon, tintColor: Color.blueGrey.base)
+        gitHomepageButton.addTarget(self, action: #selector(gitHomeButtonTapped), for: .touchUpInside)
+    }
+    
     fileprivate func prepareToolbar() {
         toolbar = Toolbar(rightViews: [closeButton])
         
         toolbar.title = repo.owner?.login
         toolbar.titleLabel.textAlignment = .left
         
-        toolbar.detail = "About."
+        toolbar.detail = repo.fullName
         toolbar.detailLabel.textAlignment = .left
         toolbar.detailLabel.textColor = Color.blueGrey.base
     }
@@ -217,7 +227,7 @@ extension RepoDetailesController {
     }
     
     fileprivate func prepareBottomBar() {
-        bottomBar = Bar(leftViews: [favoriteButton], rightViews: [forkButton], centerViews: [dateLabel])
+        bottomBar = Bar(leftViews: [favoriteButton, gitHomepageButton], rightViews: [forkButton], centerViews: [dateLabel])
     }
     
     fileprivate func preparePresenterCard() {
@@ -267,6 +277,13 @@ extension RepoDetailesController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3)) {
             sb.animate(snackbar: .hidden)
+        }
+    }
+    
+    @IBAction func gitHomeButtonTapped() {
+        let url = NSURL(string: repo.htmlUrl!)!
+        UIApplication.shared.open(url as URL, options: [:]) { (Bool) in
+            
         }
     }
 

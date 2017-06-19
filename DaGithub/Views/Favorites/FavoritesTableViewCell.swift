@@ -61,7 +61,9 @@ class FavoritesTableViewCell: Material.TableViewCell {
         }
         
         toolbar.title = repo.owner?.login ?? "No Name"
-        toolbar.detail = repo.owner?.reposUrl
+        toolbar.detail = repo.name! + " fa:star \(repo.stargazersCount)"
+        toolbar.detailLabel.parseIcon()
+        
         if let avatarPath = repo.owner?.avatar_url, let avatarURL = URL(string: avatarPath) {
             
             let filter = AspectScaledToFillSizeFilter(size: CGSize(width: 22, height: 22))
